@@ -1,0 +1,180 @@
+// Exercise 1. Define a function called logGreeting() that prints the string “Hello!” (use console.log).
+// Underneath the function, write the line of code that runs the function.
+
+function logGreeting() {
+  console.log("Hello!");
+}
+
+// Call the function
+logGreeting();
+
+// Exercise 2. Define a function called getName() that *returns* a string that is your name.
+// Remember, this function should return the string -- not print it.
+// Then print your name in the console by passing getName() into the console.log() function.
+
+function getName() {
+  return "Nina"; // Your name is set here
+}
+
+// Print the name by calling the function
+console.log(getName());
+
+
+// Exercise 3. Call a function within a function -- Write a function called logGreeting2()
+// that prints a full sentence that contains your name: "Hello! My name is <name>."
+// logGreeting2 should call myName() to get your name.
+// Then print your greeting to the console by calling logGreeting2().
+
+function myName() {
+  return "Nina"; // Your name is returned here
+}
+
+function logGreeting2() {
+  console.log("Hello! My name is " + myName() + "."); // Calls myName() to get the name
+}
+
+// Call the logGreeting2 function to print the greeting
+logGreeting2();
+
+
+
+// Exercise 4. Write a function that takes 3 parameters that are all numbers.
+// The function should return the sum of the 3 numbers.
+// Then write some function calls you would use to test your function.
+
+function sumThreeNumbers(num1, num2, num3) {
+  return num1 + num2 + num3; // Returns the sum of the three numbers
+}
+
+// Function calls to test the function
+console.log(sumThreeNumbers(5, 10, 15)); // Output: 30
+console.log(sumThreeNumbers(1, 2, 3));    // Output: 6
+console.log(sumThreeNumbers(-1, 0, 1));   // Output: 0
+console.log(sumThreeNumbers(100, 200, 300)); // Output: 600
+
+
+// Exercise 5. Let's say a museum gives a discount for children ages 14 or under, and seniors 65 or older.
+// Write a function that takes in a person's age and returns true if they should get a discount.
+// Otherwise it should return false.
+// Then write some function calls you would use to test your function.
+
+function shouldGetDiscount(age) {
+  return age <= 14 || age >= 65; // Returns true if age is 14 or under, or 65 or older
+}
+
+// Function calls to test the function
+console.log(shouldGetDiscount(10));  // Output: true (child)
+console.log(shouldGetDiscount(15));  // Output: false (not eligible)
+console.log(shouldGetDiscount(65));  // Output: true (senior)
+console.log(shouldGetDiscount(70));  // Output: true (senior)
+console.log(shouldGetDiscount(30));  // Output: false (not eligible)
+
+
+
+// Exercise 6. Write a function that takes 2 parameters -- one number and one string.
+// The function should print the string the given number of times.
+// Then write some function calls you would use to test your function.
+
+function printString(count, str) {
+  console.log(str.repeat(count)); // Uses repeat to print the string 'count' times
+}
+
+// Function calls to test the function
+printString(3, "Hello!"); // Output: Hello!Hello!Hello!
+printString(2, "Nina");   // Output: NinaNina
+printString(0, "Test");    // Output: (prints nothing)
+printString(5, "Goodbye!"); // Output: Goodbye!Goodbye!Goodbye!Goodbye!Goodbye!
+
+
+// Exercise 7. Read the following code (don't run it yet)
+function mysteryFunction1(p1) {
+  return p1 * 2;
+}
+const y = 4;
+const z = mysteryFunction1(y);
+console.log("The value of y is " + y);
+console.log("The value of z is " + z);
+
+// Without running the code, write down in a comment:
+// 1. What mysteryFunction1 does
+// 2. What prints out for the value of y
+// 3. What prints out for the value of z
+
+// 1. The function mysteryFunction1 takes one parameter (p1) and returns the value of p1 multiplied by 2.
+// 2. The value of y is 4.
+// 3. The value of z is the result of calling mysteryFunction1 with y as the argument, which is 4 * 2 = 8.
+
+
+// Now run the code and see if you're correct.
+
+function mysteryFunction1(p1) {
+  return p1 * 2;
+}
+const y = 4;
+const z = mysteryFunction1(y);
+console.log("The value of y is " + y); // Should print: The value of y is 4
+console.log("The value of z is " + z); // Should print: The value of z is 8
+
+
+// Were you correct? If not, what did you learn?
+
+// Exercise 8. Read the following code (don't run it yet)
+function mysteryFunction2(p1, p2) {
+  const x = p1 - p2;
+  return x;
+}
+const a = mysteryFunction2(10, 4);
+const b = mysteryFunction2(a, 1);
+console.log("The value of a is " + a);
+console.log("The value of b is " + b);
+
+// Without running the code, write down in a comment:
+// 1. What mysteryFunction2 does
+// 2. What prints out for the value of a
+// 3. What prints out for the value of b
+
+// 1. The function mysteryFunction2 takes two parameters (p1 and p2), calculates the difference between p1 and p2 (p1 - p2), and returns that difference.
+// 2. The value of a is the result of calling mysteryFunction2 with 10 and 4, which is 10 - 4 = 6.
+// 3. The value of b is the result of calling mysteryFunction2 with a (which is 6) and 1, so it calculates 6 - 1 = 5.
+
+// Now run the code and see if you're correct.
+function mysteryFunction2(p1, p2) {
+  const x = p1 - p2;
+  return x;
+}
+const a = mysteryFunction2(10, 4); // a = 6
+const b = mysteryFunction2(a, 1);   // b = 5
+console.log("The value of a is " + a); // Should print: The value of a is 6
+console.log("The value of b is " + b); // Should print: The value of b is 5
+
+
+
+// Were you correct? If not, what did you learn? yes
+
+
+Exercise 9. This exercise is to practice reading the documentation for functions.
+// String.split() is a function in the JavaScript standard library that you can use in your code.
+// Read about the split() function here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+// Try to use it to solve the following challenges:
+
+// Here's a string I made representing my grocery list.
+// Using split() and groceryList, make an array of my grocery list items
+const groceryList = "eggs,carrots,orange juice";
+
+// Here's a string I made representing my morning schedule.
+// Using split() and mySchedule, make an array of the *first 2* things I do in the morning
+// There are multiple ways to do this, but try doing it using only the split() function.
+const mySchedule = "wake up--->brush teeth--->eat breakfast--->go to work";
+
+const groceryList = "eggs,carrots,orange juice";
+const groceryArray = groceryList.split(','); // Split by comma
+console.log(groceryArray); // Output: ["eggs", "carrots", "orange juice"]
+
+const mySchedule = "wake up--->brush teeth--->eat breakfast--->go to work";
+const scheduleArray = mySchedule.split('---->'); // Split by the delimiter
+const firstTwoThings = scheduleArray.slice(0, 2); // Get the first two items
+console.log(firstTwoThings); // Output: ["wake up", "brush teeth"]
+
+Did you find this easy or hard? If you used references, which ones helped you?
+// Please answer in a comment below.
+//I had troble with a few of them, I used the references ive used for the other problems but also used the document provided on mdn,
