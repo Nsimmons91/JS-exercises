@@ -1,0 +1,217 @@
+
+// Exercise 1. Write a 'while' loop that prints the integers (whole numbers)
+// between 1 and 5 (inclusive).
+let number = 1; // Initialize the starting number
+
+while (number <= 5) { // Continue looping while number is less than or equal to 5
+  console.log(number); // Print the current number
+  number++; // Increment the number by 1
+}
+
+// Exercise 2. Write a 'do while' loop that prints the integers (whole numbers)
+// between 1 and 5 (inclusive).
+
+let number = 1; // Initialize the starting number
+
+do {
+  console.log(number); // Print the current number
+  number++; // Increment the number by 1
+} while (number <= 5); // Continue looping while number is less than or equal to 5
+
+// Exercise 3. Write a 'for' loop that prints the integers (whole numbers)
+// between 1 and 5 (inclusive).
+
+for (let number = 1; number <= 5; number++) { // Initialize number to 1, continue while it's less than or equal to 5, and increment by 1
+  console.log(number); // Print the current number
+}
+
+// Exercise 4. Now we want a loop that prints the integers
+// counting DOWN from 10 to 1 (inclusive). Write three loops that do this, to practice
+// writing loops in all 3 ways -- as a 'while', 'do while', and 'for' loop.
+let number = 10; // Initialize the starting number
+
+while (number >= 1) { // Continue looping while number is greater than or equal to 1
+  console.log(number); // Print the current number
+  number--; // Decrement the number by 1
+}
+
+let number = 10; // Initialize the starting number
+
+do {
+  console.log(number); // Print the current number
+  number--; // Decrement the number by 1
+} while (number >= 1); // Continue looping while number is greater than or equal to 1
+
+for (let number = 10; number >= 1; number--) { // Initialize number to 10, continue while it's greater than or equal to 1, and decrement by 1
+  console.log(number); // Print the current number
+}
+
+
+// Exercise 5. Write a loop that prints the integers from 7 to 27. Write this
+// loop in all 3 ways -- as a 'while', 'do while', and 'for' loop.
+let number = 7; // Initialize the starting number
+
+let number = 7; // Initialize the starting number
+
+while (number <= 27) { // Continue looping while number is less than or equal to 27
+  console.log(number); // Print the current number
+  number++; // Increment the number by 1
+}
+
+do {
+  console.log(number); // Print the current number
+  number++; // Increment the number by 1
+} while (number <= 27); // Continue looping while number is less than or equal to 27
+
+for (let number = 7; number <= 27; number++) { // Initialize number to 7, continue while it's less than or equal to 27, and increment by 1
+  console.log(number); // Print the current number
+}
+
+
+// Exercise 6. Write a loop that prints numbers between 0 and 100, counting by tens.
+// I.e. it will print 10, then 20, then 30, etc.
+// Write this loop in all 3 ways -- as a 'while', 'do while', and 'for' loop.
+let number = 0; // Initialize the starting number
+
+while (number <= 100) { // Continue looping while number is less than or equal to 100
+  number += 10; // Increment the number by 10
+  console.log(number); // Print the current number
+}
+
+let number = 0; // Initialize the starting number
+
+do {
+  number += 10; // Increment the number by 10
+  console.log(number); // Print the current number
+} while (number < 100); // Continue looping while number is less than 100
+
+for (let number = 10; number <= 100; number += 10) { // Initialize number to 10, continue while it's less than or equal to 100, and increment by 10
+  console.log(number); // Print the current number
+}
+
+
+// Exercise 7. Add a comment as to why the following loop is an infinite loop (will
+// run without ever stopping). Then fix the loop so that it stops when
+// counterFour is equal to -100.
+
+let counterFour = 1;
+while (counterFour < 2) {
+  console.log("HELP ME!");
+  counterFour--;
+}
+
+
+Why the Original Loop is Infinite:
+The loop keeps running forever because the condition `counterFour < 2` is always true when `counterFour` starts at 1. Even though `counterFour` goes down by 1 each time, it will never stop being less than 2 because it will keep getting smaller and smaller, leading to endless printing of "HELP ME!".
+
+let counterFour = 1;
+while (counterFour > -100) { // Keep looping as long as counterFour is more than -100
+  console.log("HELP ME!"); // Print "HELP ME!"
+  counterFour--; // Decrease counterFour by 1
+}
+
+
+// Exercise 8. Make a variable that contains your favorite integer. Write a loop
+// (your choice which type) that prints the integers from 0 to that number.
+let favoriteInteger = 7; // Your favorite integer
+let currentNumber = 0; // Start from 0
+
+while (currentNumber <= favoriteInteger) { // Continue looping while currentNumber is less than or equal to favoriteInteger
+  console.log(currentNumber); // Print the current number
+  currentNumber++; // Increment currentNumber by 1
+}
+
+
+// Exercise 9. Make a variable that contains your favorite integer (this time make sure it's
+// less than 100). Write a loop (your choice which type) that prints the integers from 0 to 100.
+// Next to each number it should print "not my favorite number". But next to your favorite
+// number it should print "my favorite number!". Example output (if your favorite number was 2):
+// 0 not my favorite number
+// 1 not my favorite number
+// 2 my favorite number!
+// 3 not my favorite number
+// ...
+// (Hint - use an if statement in your loop)
+
+let favoriteInteger = 7; // Your favorite integer
+let currentNumber = 0; // Start from 0
+
+while (currentNumber <= 100) { // Loop until currentNumber is greater than 100
+  if (currentNumber === favoriteInteger) { // Check if currentNumber is the favorite integer
+    console.log(currentNumber + ": my favorite number!"); // Print the favorite number message
+  } else {
+    console.log(currentNumber + ": not my favorite number."); // Print the not favorite number message
+  }
+  currentNumber++; // Increment currentNumber by 1
+}
+
+
+
+// Exercise 10. In some of the exercises above, we had you write all 3 types of loops, for practice.
+// But in real life, how would you decide which type of loop to use? You might not have an
+// exact answer, but spend a few minutes thinking about the different types of loops and/or
+// doing some research and write down your thoughts in a comment below:
+// 1. For Loop
+- When to Use: Use this when you know exactly how many times you want to repeat something.
+- Example: Counting from 1 to 10 or going through each item in a list.
+- Why it's Good: It's clear and straightforward when you have a set number of times to loop.
+
+2. While Loop
+- When to Use: Use this when you don't know how many times you need to repeat something, and it depends on a condition.
+- Example: Keeping asking a user for input until they provide a valid answer or reading data until there's no more left.
+- Why it's Good: It's flexible, but you need to be careful to make sure it eventually stops, or you might get stuck in an endless loop.
+
+3. Do While Loop
+- When to Use: Use this when you want to make sure the loop runs at least once, even if the condition isn't true right away.
+- Example: Asking a user for input and showing a prompt before checking if their input is valid.
+- Why it's Good: It guarantees that the code inside the loop will run at least one time.
+
+Quick Tips for Choosing a Loop:
+- If you know how many times to loop: Use a for loop.
+- If it depends on a condition: Use a while loop.
+- If it must run at least once: Use a do while loop.
+
+// Exercise 11. Now we'll practice using nested loops (a loop inside another loop)!
+// Update the nested loops below to so that for each value of outsideCounter,
+// the inside loop will show a countdown
+
+/*
+counting down from 0
+*********************************** 
+counting down from 1
+inside 1
+*********************************** 
+counting down from 2
+inside 2
+inside 1
+*********************************** 
+counting down from 3
+inside 3
+inside 2
+inside 1
+*********************************** 
+*/
+
+for (let outsideCounter = 0; outsideCounter <= 3 /*???*/; ) {
+  console.log("counting down from", outsideCounter);
+  for (let insideCounter = outsideCounter /*???*/ /*???*/; ; ) {
+    console.log("inside" /*???*/);
+  }
+  console.log("***********************************");
+}
+
+for (let outsideCounter = 0; outsideCounter <= 3; outsideCounter++) { // Updated to include increment
+  console.log("counting down from", outsideCounter);
+  
+  for (let insideCounter = outsideCounter; insideCounter > 0; insideCounter--) { // Updated initialization and condition
+    console.log("inside", insideCounter); // Updated to include the current insideCounter value
+  }
+  
+  console.log("");
+}
+
+// Congrats, you made it to the end!
+// Did you find this easy or hard? If you used references, which ones helped you?
+// Please answer in a comment below.
+// Once I was able to figure out how to use the loops , it was easier. 
+I used google and had ai explain the problems to me as if I was a ten year old. 
