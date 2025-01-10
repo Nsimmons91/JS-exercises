@@ -1,0 +1,174 @@
+// Exercise 1. Write a function called prependToString, which accepts two strings.
+// The function should return a new string with the second string prepended to the first string.
+
+function prependToString(str1, str2) {
+    return str2 + str1; // Prepend str2 to str1
+}
+
+
+/
+// Exercise 2. Write a function called stringIncludes, which accepts two strings: the first string is a word and the second string is a single character.
+// The function should return true if the first string includes the character, otherwise it should return false.
+// IMPORTANT: Do not use the built in string.includes() function!
+// Examples:
+// stringIncludes('awesome', 'e'); // --> true
+// stringIncludes('awesome', 'z'); // --> false
+
+function stringIncludes(word, char) {
+    // Loop through each character in the word
+    for (let i = 0; i < word.length; i++) {
+        // Check if the current character matches the given character
+        if (word[i] === char) {
+            return true; // Return true if found
+        }
+    }
+    return false; // Return false if not found
+}
+
+// Example usage
+console.log(stringIncludes("hello", "e")); // Output: true
+console.log(stringIncludes("world", "a")); // Output: false
+
+// Exercise 3. Write a function called stringLastIndexOf, which accepts two strings: the first is a word and the second is a single character.
+// The function should return the last index at which the character exists or -1 if the character is not found.
+// IMPORTANT: Do not use the built in "string".lastIndexOf() function!
+// Examples:
+// stringLastIndexOf('awesome', 'e'); // --> 6
+// stringLastIndexOf('awesome', 'z'); // --> -1
+function stringLastIndexOf(word, character) {
+    // Ensure the second parameter is a single character
+    if (character.length !== 1) {
+        throw new Error("The second parameter must be a single character.");
+    }
+
+    // Initialize lastIndex to -1 (default if not found)
+    let lastIndex = -1;
+
+    // Loop through each character in the word
+    for (let i = 0; i < word.length; i++) {
+        // Check if the current character matches the given character
+        if (word[i] === character) {
+            lastIndex = i; // Update lastIndex when character is found
+        }
+    }
+    
+    return lastIndex; // Return the last index found or -1
+}
+
+// Example usage
+console.log(stringLastIndexOf('awesome', 'e')); // Output: 6
+console.log(stringLastIndexOf('awesome', 'z')); // Output: -1
+console.log(stringLastIndexOf('banana', 'a')); // Output: 5
+console.log(stringLastIndexOf('hello', 'o'));   // Output: 4
+
+
+// Exercise
+ 4. Write a function called removeFromString, which accepts a string, a starting index (number) and a number of characters to remove.
+// The function should return a new string with the characters removed.
+// Examples:
+// removeFromString('Elie', 2, 2) // --> 'El'
+// removeFromString('Elie', 0, 1) // --> 'lie'
+// removeFromString('Hello School', 0, 6) // --> 'School'
+// removeFromString('Hello School', 2, 4) // --> 'HeSchool'
+// removeFromString('Hello School', 6, 400) // --> 'Hello '
+function removeFromString(str, startIndex, numChars) {
+    // Handle edge cases
+    if (startIndex < 0 || startIndex >= str.length) {
+        return str; // Return original string if startIndex is out of bounds
+    }
+
+    // Calculate the end index for removal
+    const endIndex = Math.min(startIndex + numChars, str.length);
+    
+    // Create the new string by concatenating the parts before and after the removal
+    const newString = str.slice(0, startIndex) + str.slice(endIndex);
+    
+    return newString; // Return the modified string
+}
+
+// Example usage with perfume names
+console.log(removeFromString('Chanel No. 5', 6, 3)); // Output: 'Chanel 5'
+console.log(removeFromString('Dior Sauvage', 0, 4)); // Output: 'Sauvage'
+console.log(removeFromString('Marc Jacobs Daisy', 5, 6)); // Output: 'Marc Daisy'
+console.log(removeFromString('Yves Saint Laurent', 5, 5)); // Output: 'Yves Laurent'
+console.log(removeFromString('Versace Bright Crystal', 8, 100)); // Output: 'Versace '
+
+
+// Exercise 5. Write a function called indexOf, which accepts an array and a number.
+// The function should return the first index at which the value exists or -1 if the value is not found.
+// IMPORTANT: Do not use the built in array.indexOf() function!
+// Examples:
+// let arr = [5, 10, 15, 20];
+// indexOf(arr, 20); // --> 3
+// let arr2 = [1, 2, 3, 4, 5];
+// indexOf(arr2, 2); // --> 1
+// let arr3 = [1, 2];
+// indexOf(arr3, 10); // --> -1
+
+function indexOf(array, value) {
+    // Loop through each element in the array
+    for (let i = 0; i < array.length; i++) {
+        // Check if the current element matches the given value
+        if (array[i] === value) {
+            return i; // Return the index if found
+        }
+    }
+    return -1; // Return -1 if the value is not found
+}
+
+// Example usage
+let arr = [5, 10, 15, 20];
+console.log(indexOf(arr, 20)); // Output: 3
+
+let arr2 = [1, 2, 3, 4, 5];
+console.log(indexOf(arr2, 2)); // Output: 1
+
+let arr3 = [1, 2];
+console.log(indexOf(arr3, 10)); // Output: -1
+
+
+// Exercise 6. Write a function called includes which accepts a collection, a value, and an optional starting index. The function should return true if the value exists in the collection when we search starting from the starting index. Otherwise, it should return false.
+// The collection can be a string, an array, or an object. If the collection is a string or array, the third parameter is a starting index for where to search from. If the collection is an object, the function searches for the value among values in the object; since objects have no sort order, the third parameter is ignored.
+// Examples:
+// includes([1, 2, 3], 1) // --> true
+// includes([1, 2, 3], 1, 2) // --> false
+// includes([1, 2, 3], 6) // --> false
+// includes({ 'a': 1, 'b': 2 }, 1) // --> true
+// includes({ 'a': 1, 'b': 2 }, 'a') // --> false
+// includes('abcd', 'b') // --> true
+// includes('abcd', 'e') // --> false
+// includes('abcd', 'a', 2) // --> false
+
+function includes(collection, value, startIndex = 0) {
+    // Handle string and array collections
+    if (typeof collection === 'string' || Array.isArray(collection)) {
+        // Ensure the starting index is within bounds
+        if (startIndex < 0) {
+            startIndex = 0; // Adjust if negative
+        }
+        for (let i = startIndex; i < collection.length; i++) {
+            if (collection[i] === value) {
+                return true; // Return true if found
+            }
+        }
+    } 
+    // Handle object collections
+    else if (typeof collection === 'object' && collection !== null) {
+        // Iterate through object values
+        for (const key in collection) {
+            if (collection[key] === value) {
+                return true; // Return true if found
+            }
+        }
+    }
+
+    return false; // Return false if not found
+}
+
+// Example usage with different types of collections
+console.log(includes('Hello World', 'W', 6)); // Output: true
+console.log(includes([1, 2, 3, 4], 3, 2));    // Output: true
+console.log(includes([1, 2, 3, 4], 2, 2));    // Output: false
+console.log(includes({a: 1, b: 2, c: 3}, 2));  // Output: true
+console.log(includes({x: 10, y: 20}, 30));      // Output: false
+
