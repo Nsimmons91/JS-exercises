@@ -1,0 +1,226 @@
+// Exercise 1. Write a function called keys, which accepts an object and returns an array of all of the keys in the object.
+// IMPORTANT: Do not use the built in Object.keys() function!
+// Examples:
+// let obj = { a: 1, b: 2, c: 3 };
+// keys(obj); // ["a", "b", "c"]
+// let obj2 = { first: 'Matt', last: 'Lane' };
+// keys(obj2); // ["first", "last"]
+// let obj3 = {};
+// keys(obj3); // []
+
+function keys(obj) {
+    const result = []; // Initialize an empty array to hold the keys
+
+    // Loop through each property in the object using a for...in loop
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) { // Ensure the property is a direct property of the object
+            result.push(key); // Add the key to the result array
+        }
+    }
+
+    return result; // Return the array of keys
+}
+
+// Example usage
+console.log(keys({ a: 1, b: 2, c: 3 })); // Output: ["a", "b", "c"]
+console.log(keys({ name: 'Alice', age: 25, isStudent: false })); // Output: ["name", "age", "isStudent"]
+console.log(keys({})); // Output: []
+
+
+// Exercise 2. Write a function called values, which accepts an object and returns an array of all of the values in the object.
+// IMPORTANT: Do not use the built in Object.values() function!
+// Examples:
+// let obj = { a: 1, b: 2, c: 3 };
+// values(obj); // [1,2,3]
+// let obj2 = { first: 'Matt', last: 'Lane', isDogOwner: true };
+// values(obj2); // ["Matt", "Lane", true]
+// let obj3 = {};
+// values(obj3); // []
+
+function values(obj) {
+    const result = []; // Initialize an empty array to hold the values
+
+    // Loop through each property in the object using a for...in loop
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) { // Ensure the property is a direct property of the object
+            result.push(obj[key]); // Add the value to the result array
+        }
+    }
+
+    return result; // Return the array of values
+}
+
+// Example usage
+const exampleObj = {
+    name: "Nina",
+    age: 33,
+    relationship: "mom"
+};
+
+console.log(values(exampleObj)); // Output: ["Nina", 33, "mom"]
+
+
+// Exercise 3. Write a function called entries, which accepts an object and returns an array of arrays of key-value pairs.
+// In other words, each sub-array is an "entry" in the object with two elements: the first element is the key, and the second element is the value.
+// IMPORTANT: Do not use the built in Object.entries() function!
+// Examples:
+// let obj = { a: 1, b: 2, c: 3 };
+// entries(obj);
+// [["a",1], ["b",2], ["c",3]]
+// let obj2 = { first: 'Matt', last: 'Lane', isDogOwner: true };
+// entries(obj2);
+// [["first","Matt"], ["last","Lane"], ["isDogOwner",true]]
+// let obj3 = {};
+// entries(obj3); // []
+
+function entries(obj) {
+    const result = []; // Initialize an empty array to hold the key-value pairs
+
+    // Loop through each property in the object using a for...in loop
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) { // Ensure the property is a direct property of the object
+            result.push([key, obj[key]]); // Add a sub-array with the key and value to the result array
+        }
+    }
+
+    return result; // Return the array of key-value pairs
+}
+
+// Example usage
+const exampleObj = {
+    name: "Nina",
+    age: 33,
+    relationship: "mom"
+};
+
+console.log(entries(exampleObj)); 
+// Output: [["name", "Nina"], ["age", 33], ["relationship", "mom"]]
+
+
+
+// Exercise 4. Write a function called pluck, which takes an array of objects and the name of a key.
+// The function should return an array containing the value associated with that key for each object, or undefined if that key is not present in the object.
+// Examples:
+// pluck([{ name: "Tim" }, { name: "Matt" }, { name: "Elie" }],'name')
+// ["Tim", "Matt", "Elie"]
+// pluck([{ name: "Tim", isBoatOwner: true }, { name: "Matt", isBoatOwner: false }, { name: "Elie" }],'isBoatOwner')
+// [true, false, undefined]
+
+const homeowners = [
+    { name: "Nina", isHomeOwner: true },
+    { name: "Melissa", isHomeOwner: false },
+    { name: "Nicky", isHomeOwner: true }
+];
+
+function checkHomeowners(arrayOfPeople) {
+    return arrayOfPeople.map(person => ({
+        name: person.name,
+        isHomeOwner: person.isHomeOwner
+    }));
+}
+
+// Example usage
+const result = checkHomeowners(homeowners);
+console.log(result);
+// Output: [
+//   { name: "Nina", isHomeOwner: true },
+//   { name: "Melissa", isHomeOwner: false },
+//   { name: "Nicky", isHomeOwner: true }
+// ]
+
+
+
+// Exercise 5. Write a function called stringFromObject that generates a string from an object's key/value pairs.
+// The format should be "key = value, key = value".
+// Each key/value pair should be separated by a comma and space except for the last pair.
+function values(obj) {
+    const result = []; // Initialize an empty array to hold the values
+
+    // Loop through each property in the object using a for...in loop
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) { // Ensure the property is a direct property of the object
+            result.push(obj[key]); // Add the value to the result array
+        }
+    }
+
+    return result; // Return the array of values
+}
+
+// Example usage
+const exampleObj = {
+    name: "Nina",
+    age: 33,
+    relationship: "mom"
+};
+
+console.log(values(exampleObj)); // Output: ["Nina", 33, "mom"]
+
+// Exercise 6. Write a function called minMaxKeyInObject that accepts an object with numeric keys.*
+// The function should return an array with the following format: [lowestKey, highestKey]
+// Examples:
+// minMaxKeyInObject({ 2: 'a', 7: 'b', 1: 'c', 10: 'd', 4: 'e' });
+// [1, 10]
+// minMaxKeyInObject({ 1: 'Elie', 4: 'Matt', 2: 'Tim' });
+// [1, 4]
+
+function minMaxKeyInObject(obj) {
+    let lowestKey = 0; // Initialize lowestKey to 0
+    let highestKey = 0; // Initialize highestKey to 0
+    let hasKeys = false; // Flag to check if there are any numeric keys
+
+    // Loop through each property in the object using a for...in loop
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) { // Ensure the property is a direct property of the object
+            const numericKey = Number(key); // Convert the key to a number
+
+            // Update lowestKey and highestKey only if there are numeric keys
+            if (!isNaN(numericKey)) {
+                hasKeys = true; // Set flag if a numeric key is found
+                if (numericKey < lowestKey || lowestKey === 0 && numericKey !== 0) {
+                    lowestKey = numericKey; // Update lowestKey if current key is lower
+                }
+                if (numericKey > highestKey || highestKey === 0 && numericKey !== 0) {
+                    highestKey = numericKey; // Update highestKey if current key is higher
+                }
+            }
+        }
+    }
+
+    // If no numeric keys were found, return [0, 0]
+    if (!hasKeys) {
+        return [0, 0];
+    }
+
+    // Return the array with the lowest and highest keys
+    return [lowestKey, highestKey];
+}
+
+// Example usage
+const exampleObj = {
+    10: "value1",
+    5: "value2",
+    20: "value3",
+    15: "value4"
+};
+
+console.log(minMaxKeyInObject(exampleObj)); 
+// Output: [5, 20]
+
+// Additional examples
+const anotherObj = {
+    100: "high",
+    50: "medium",
+    0: "low",
+    75: "mid-high"
+};
+
+console.log(minMaxKeyInObject(anotherObj)); 
+// Output: [0, 100]
+
+const emptyObj = {};
+
+console.log(minMaxKeyInObject(emptyObj)); 
+// Output: [0, 0] (when no keys exist)
+
+
+
